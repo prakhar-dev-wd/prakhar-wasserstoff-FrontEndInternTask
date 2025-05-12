@@ -47,7 +47,8 @@ npm install
 1. Start the server
 ```bash
 # In the realtime-editor-server directory
-node index.ts
+npm install ts-node typescript @types/node --save-dev
+node --loader ts-node/esm index.ts
 # Or if using ts-node
 ts-node index.ts
 ```
