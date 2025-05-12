@@ -1,70 +1,134 @@
-# Getting Started with Create React App
+# Real-Time Collaborative Editor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A browser-based collaborative text editor that allows multiple users to edit a document simultaneously in real-time. Changes made by one user are instantly visible to all other connected users.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Real-Time Collaboration**: Edit documents simultaneously with multiple users
+- **User Attribution**: See who made the most recent changes
+- **User Presence**: View who is currently online in the editor
+- **Error Handling**: Robust error management for network issues and unexpected errors
+- **Responsive Design**: Works well on various screen sizes
 
-### `npm start`
+## Technology Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React.js with TypeScript
+- **Styling**: Tailwind CSS
+- **Real-Time Communication**: Socket.IO
+- **Backend**: Node.js with Express
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v14 or higher)
+- npm or yarn
 
-### `npm run build`
+### Setup Instructions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/collaborative-editor.git
+cd collaborative-editor
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies for both client and server
+```bash
+# Install client dependencies in the root directory
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Navigate to server directory
+cd realtime-editor-server
+npm install
+```
 
-### `npm run eject`
+### Running the Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Start the server
+```bash
+# In the realtime-editor-server directory
+node index.ts
+# Or if using ts-node
+ts-node index.ts
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. In a separate terminal, start the client
+```bash
+# In the root project directory
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Open your browser and navigate to `http://localhost:3000`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## How to Use
 
-## Learn More
+1. Enter your username on the login screen
+2. Start editing in the document area
+3. See real-time updates from other connected users
+4. View who is currently online and who made the last edit
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+project-root/
+├── node_modules/         # Node.js dependencies
+├── public/               # Static assets
+├── realtime-editor-server/  # Server-side code
+│   ├── node_modules/     # Server dependencies
+│   ├── index.ts          # Socket.IO server implementation
+│   ├── package-lock.json # Server dependency lock file
+│   ├── package.json      # Server package configuration
+│   └── tsconfig.json     # TypeScript configuration for server
+└── src/                  # Client-side code
+    ├── components/       # React components
+    │   ├── Editor.tsx    # Main editor component
+    │   ├── ErrorBoundary.tsx  # Error handling component
+    │   └── App.tsx       # Main application component
+    ├── index.css         # Global styles (Tailwind)
+    ├── index.html        # HTML entry point
+    ├── index.tsx         # Application entry point
+    ├── types.ts          # TypeScript type definitions
+    ├── .gitignore        # Git ignore file
+    ├── package-lock.json # Client dependency lock file
+    ├── package.json      # Client package configuration
+    ├── README.md         # Project documentation
+    └── tailwind.config.js # Tailwind CSS configuration
+```
 
-### Code Splitting
+## Error Handling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The application includes comprehensive error handling for various scenarios:
 
-### Analyzing the Bundle Size
+- Socket connection errors
+- Server disconnections
+- Runtime errors in React components
+- Content synchronization issues
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Future Improvements
 
-### Making a Progressive Web App
+- User authentication and authorization
+- Document persistence with database storage
+- Multiple document support
+- Rich text formatting
+- Cursor presence to see where others are editing
+- Offline mode with synchronization when reconnected
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contributing
 
-### Advanced Configuration
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-### Deployment
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-### `npm run build` fails to minify
+## Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Socket.IO](https://socket.io/) for real-time bidirectional event-based communication
+- [React](https://reactjs.org/) for the UI library
+- [Tailwind CSS](https://tailwindcss.com/) for styling
